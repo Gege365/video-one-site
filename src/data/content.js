@@ -49,19 +49,21 @@ export const sitePlans = [
 export const courseExamples = [
   {
     id: 1,
-    title: 'Curso de Lançamento Digital',
-    niche: 'Marketing',
-    description: 'Gravação + edição + lançamento completo para especialista em marketing.',
-    youtubeId: '',
-    placeholder: true,
+    title: 'Corretor 10x',
+    niche: 'Corretor de Imóveis',
+    author: 'Vinícius Franco',
+    description:
+      'Gravação + edição + entrega do material em nuvem para a equipe do corretor.',
+    youtubeId: '9UAGarP7_sw',
   },
   {
     id: 2,
-    title: 'Mentoria de Finanças Pessoais',
-    niche: 'Finanças',
-    description: 'Produção audiovisual e estrutura modular para lançamento em plataforma.',
-    youtubeId: '',
-    placeholder: true,
+    title: 'Master PEIM',
+    niche: 'Estética',
+    author: 'Dra. Lorenna Keren',
+    description:
+      'Gravação + edição + planejamento de posicionamento nas redes + vídeo na plataforma + lançamento. Biomédica Esteta e Cirurgiã-Dentista, especialista em PEIM.',
+    youtubeId: 'jHwgQeZeRYE',
   },
 ]
 
@@ -83,7 +85,7 @@ export const siteExamples = [
     description: 'Presença digital personalizada para atendimento online e presencial.',
     accent: '#14f195',
     url: 'https://www.gleicealleyne.com.br/',
-    desktopImage: '/images/cases/gleice-desktop.jpg',
+    desktopImage: '/images/cases/gleice-desktop.jpg?v=2',
     mobileImage: '/images/cases/gleice-mobile.jpg',
   },
 ]

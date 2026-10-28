@@ -29,7 +29,7 @@ export default function Assistants({ onOpenAssistant }) {
         variants={sectionVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.35 }}
       >
         {list.map((a) => (
           <motion.article

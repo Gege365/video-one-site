@@ -9,7 +9,7 @@ export default function Sites({ onOpenAssistant }) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
         >
           <p className="section-label">Sites &amp; presença digital</p>
@@ -27,7 +27,7 @@ export default function Sites({ onOpenAssistant }) {
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.25 }}
             transition={{ duration: 0.5 }}
           >
             <h3 className="service-side-title">O que oferecemos</h3>
@@ -82,7 +82,7 @@ export default function Sites({ onOpenAssistant }) {
             className="mockups-grid mockups-grid--cases"
             initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.25 }}
             transition={{ duration: 0.5 }}
           >
             <h3 className="cases-title">Alguns de nossos Cases</h3>

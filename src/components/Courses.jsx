@@ -4,7 +4,7 @@ import { courseExamples, courseIncludes, coursePremium } from '../data/content'
 
 function CourseVideo({ item }) {
   const [playing, setPlaying] = useState(false)
-  const canPlay = Boolean(item.youtubeId) && !item.placeholder
+  const canPlay = Boolean(item.youtubeId)
 
   return (
     <article className="portfolio-item">
@@ -19,12 +19,19 @@ function CourseVideo({ item }) {
         ) : (
           <button
             type="button"
-            className="video-placeholder"
+            className={`video-placeholder${canPlay ? ' has-thumb' : ''}`}
             onClick={() => {
               if (canPlay) setPlaying(true)
             }}
             aria-label={canPlay ? `Reproduzir ${item.title}` : `${item.title} — em breve`}
           >
+            {canPlay && (
+              <img
+                className="video-thumb"
+                src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
+                alt=""
+              />
+            )}
             <span className="play-btn" aria-hidden>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="#050508">
                 <path d="M8 5v14l11-7z" />
@@ -36,6 +43,7 @@ function CourseVideo({ item }) {
       <div className="portfolio-meta">
         <p className="tag">{item.niche}</p>
         <h4>{item.title}</h4>
+        {item.author && <p className="portfolio-author">{item.author}</p>}
         <p>{item.description}</p>
       </div>
     </article>
@@ -49,7 +57,7 @@ export default function Courses({ onOpenAssistant }) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
         >
           <p className="section-label">Criação do seu Curso Online</p>
@@ -67,7 +75,7 @@ export default function Courses({ onOpenAssistant }) {
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.25 }}
             transition={{ duration: 0.5 }}
           >
             <h3 className="service-side-title">O que está incluso</h3>
@@ -109,7 +117,7 @@ export default function Courses({ onOpenAssistant }) {
             className="portfolio-grid"
             initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.25 }}
             transition={{ duration: 0.5 }}
           >
             <h3 className="cases-title">Alguns de nossos Cases</h3>
