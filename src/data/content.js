@@ -55,6 +55,7 @@ export const courseExamples = [
     description:
       'Gravação + edição + entrega do material em nuvem para a equipe do corretor.',
     youtubeId: '9UAGarP7_sw',
+    cover: '/images/cases/corretor-10x-cover.jpg',
   },
   {
     id: 2,
@@ -64,6 +65,7 @@ export const courseExamples = [
     description:
       'Gravação + edição + planejamento de posicionamento nas redes + vídeo na plataforma + lançamento. Biomédica Esteta e Cirurgiã-Dentista, especialista em PEIM.',
     youtubeId: 'jHwgQeZeRYE',
+    cover: '/images/cases/master-peim-cover.jpg',
   },
 ]
 

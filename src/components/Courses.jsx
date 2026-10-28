@@ -28,7 +28,10 @@ function CourseVideo({ item }) {
             {canPlay && (
               <img
                 className="video-thumb"
-                src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
+                src={
+                  item.cover ||
+                  `https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`
+                }
                 alt=""
               />
             )}
