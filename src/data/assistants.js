@@ -13,7 +13,7 @@ export const assistants = {
       'Gravação, edição, posicionamento nas redes, organização do curso e lançamento — ele te guia do zero ao ar.',
     avatar: '/images/jhon.png',
     accent: 'purple',
-    sheetKey: 'john_leads',
+    sheetKey: 'Jhon',
     cta: 'Falar com o Jhon para Criar meu Curso',
     greeting:
       'E aí! 👋 Sou o Jhon, da Video One. Vou te ajudar a entender como gravar e lançar o seu curso online. Bora?',
@@ -68,7 +68,8 @@ export const assistants = {
         field: 'formato',
         options: [
           'Falando pra câmera (estilo mentor)',
-          'Slides + apresentação',
+          'Slides de Apresentação + Aula',
+          'Aula mais dinâmica - Ideal para Cursos de Estética com Pacientes Modelos.',
           'Mistura de formatos',
           'Ainda não sei',
         ],
@@ -133,7 +134,7 @@ export const assistants = {
       'Sites tecnológicos, landing pages e assistentes virtuais — visual premium feito para converter visitantes em clientes.',
     avatar: '/images/teo.png',
     accent: 'green',
-    sheetKey: 'teo_leads',
+    sheetKey: 'Teo',
     cta: 'Falar com o Teo para Criar meu Site',
     greeting:
       'Fala! 😎 Eu sou o Teo, da Video One. Vou te ajudar a desenhar o site ideal pro seu negócio — com visual premium e captação de leads. Bora nessa?',
@@ -165,7 +166,7 @@ export const assistants = {
         type: 'choice',
         field: 'segmento',
         options: [
-          'Clínica / estética / saúde',
+          'Clínica / estética / Medicina / saúde',
           'Advocacia',
           'Contabilidade / finanças',
           'Infoproduto / cursos',
@@ -178,9 +179,9 @@ export const assistants = {
         type: 'choice',
         field: 'tipo_site',
         options: [
-          'Landing page de captura',
-          'Site institucional completo',
-          'Site com assistente virtual',
+          'Landing page de captura com redirecionamento (Site Simples)',
+          'Site com assistente virtual para captar os Leads (Site Padrão)',
+          'Site institucional completo com Assistente e Especificidades (Site Premium)',
           'Ainda não sei — quero indicação',
         ],
       },
@@ -190,10 +191,10 @@ export const assistants = {
         type: 'choice',
         field: 'objetivo',
         options: [
-          'Captar leads / WhatsApp',
+          'Redirecionar Leads para WhatsApp',
+          'Receber os leads com uma Assistente Virtual e encaminhar',
           'Vender produto ou serviço',
           'Fortalecer a marca',
-          'Agendar clientes',
         ],
       },
       {
@@ -215,7 +216,6 @@ export const assistants = {
         options: [
           'Assistente virtual / chat',
           'Integração com WhatsApp',
-          'Agendamento online',
           'Tudo isso e mais',
         ],
       },
@@ -248,21 +248,39 @@ export const assistants = {
   },
 }
 
-export function buildWhatsAppSummary(assistant, answers) {
-  const lines = [
-    `*Novo lead — ${assistant.name} (${assistant.role})*`,
-    '',
-    ...Object.entries(answers).map(([key, value]) => {
-      const label = key.replace(/_/g, ' ')
-      return `• *${label}:* ${value}`
-    }),
-    '',
-    '_Lead captado pelo site Video One_',
-  ]
-  return lines.join('\n')
+export function createAttendanceId(assistant) {
+  const code = assistant.id === 'teo' ? 'TEO' : 'JHON'
+  const now = new Date()
+  const stamp = [
+    now.getFullYear().toString().slice(-2),
+    String(now.getMonth() + 1).padStart(2, '0'),
+    String(now.getDate()).padStart(2, '0'),
+    String(now.getHours()).padStart(2, '0'),
+    String(now.getMinutes()).padStart(2, '0'),
+  ].join('')
+  const suffix = Math.random().toString(36).slice(2, 6).toUpperCase()
+  return `VO-${code}-${stamp}-${suffix}`
+}
+
+export function buildWhatsAppSummary(assistant, answers, attendanceId) {
+  const nome = (answers.nome || '').trim() || '—'
+  const purpose =
+    assistant.id === 'teo'
+      ? 'criação do meu site'
+      : 'criação do meu curso'
+
+  return [
+    `Olá. Acabei de falar com o ${assistant.name} no site para a ${purpose}.`,
+    'E quero continuar o atendimento com a Equipe Video One.',
+    `Nome: ${nome}`,
+    `ID do Atendimento: ${attendanceId}`,
+  ].join('\n')
+}
+
+export function getWhatsAppUrl(message) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
 export function openWhatsApp(message) {
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
-  window.open(url, '_blank', 'noopener,noreferrer')
+  window.open(getWhatsAppUrl(message), '_blank', 'noopener,noreferrer')
 }
