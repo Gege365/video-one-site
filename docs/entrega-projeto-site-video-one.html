@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entrega do Projeto — Video One</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 12mm 14mm 12mm;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.42;
+      color: #1a1a1f;
+      background: #fff;
+    }
+
+    .page {
+      max-width: 186mm;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 2.5px solid #0a0a0c;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    header img {
+      height: 40px;
+      width: auto;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 8pt;
+      color: #4b5563;
+      line-height: 1.35;
+    }
+
+    .header-meta strong {
+      display: block;
+      color: #0a0a0c;
+      font-size: 11pt;
+      margin-bottom: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #14f195;
+      color: #0a0a0c;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 15pt;
+      letter-spacing: -0.01em;
+    }
+
+    .lead {
+      margin: 0 0 14px;
+      color: #4b5563;
+      font-size: 9.5pt;
+    }
+
+    h2 {
+      font-size: 9.5pt;
+      margin: 12px 0 6px;
+      padding: 4px 8px;
+      background: #0a0a0c;
+      color: #fff;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    p, li { margin: 0 0 5px; text-align: justify; }
+
+    ul { margin: 4px 0 8px; padding-left: 16px; }
+    li { margin-bottom: 2px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+    }
+
+    .field {
+      font-size: 9pt;
+      margin-bottom: 5px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 600;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #4b5563;
+      margin-bottom: 1px;
+    }
+
+    .line {
+      border-bottom: 1px solid #9ca3af;
+      min-height: 16px;
+      padding: 1px 2px;
+    }
+
+    .card {
+      border: 1px solid #d1d5db;
+      border-radius: 2px;
+      padding: 8px 10px;
+      margin: 6px 0 8px;
+      background: #fafafa;
+      break-inside: avoid;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 10pt;
+      color: #0a0a0c;
+    }
+
+    .card .what {
+      font-size: 8.5pt;
+      color: #4b5563;
+      margin-bottom: 6px;
+    }
+
+    .warn {
+      border-left: 3px solid #f59e0b;
+      background: #fffbeb;
+      padding: 7px 10px;
+      margin: 8px 0;
+      font-size: 8.5pt;
+    }
+
+    .ok {
+      border-left: 3px solid #14f195;
+      background: #f0fdf8;
+      padding: 7px 10px;
+      margin: 8px 0;
+      font-size: 8.5pt;
+    }
+
+    table.svc {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0 8px;
+      font-size: 9pt;
+    }
+
+    table.svc th,
+    table.svc td {
+      border: 1px solid #d1d5db;
+      padding: 5px 7px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    table.svc th {
+      background: #f3f4f6;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      width: 32%;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 8px;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0a0a0c;
+      color: #fff;
+      font-size: 8pt;
+      font-weight: 700;
+      text-align: center;
+      line-height: 18px;
+    }
+
+    .sign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    .sign {
+      text-align: center;
+      padding-top: 28px;
+    }
+
+    .sign .sig-line {
+      border-top: 1px solid #111;
+      margin: 0 6px 4px;
+      padding-top: 5px;
+      font-size: 8.5pt;
+    }
+
+    .sign .role {
+      font-size: 7.5pt;
+      color: #6b7280;
+    }
+
+    footer.doc-foot {
+      margin-top: 16px;
+      padding-top: 7px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 7pt;
+      color: #6b7280;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .mono {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 8.5pt;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="../public/images/logo-video1-dark.png" alt="Video One" />
+      <div class="header-meta">
+        <strong>VIDEO ONE</strong>
+        Agência e Produtora<br />
+        Av. Rondon Pacheco, 5750 — Empresarial Albino Pfeifer<br />
+        Minas Gerais, Brasil<br />
+        WhatsApp: (34) 99833-5489 · @videooneprodutora
+      </div>
+    </header>
+
+    <div class="badge">Documento de entrega</div>
+    <h1>Seu site está no ar</h1>
+    <p class="lead">
+      Este PDF reúne o resumo do projeto, os acessos das contas criadas para você e as orientações
+      para manter o site sob o seu controle — sem mensalidade e sem depender do computador da Video One.
+    </p>
+
+    <h2>1. Dados do projeto</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Cliente / empresa</label>
+        <div class="line">&nbsp;</div>
+      </div>
+      <div class="field">
+        <label>Data da entrega</label>
+        <div class="line">&nbsp;</div>
+      </div>
+      <div class="field">
+        <label>Nome do site / marca</label>
+        <div class="line">&nbsp;</div>
+      </div>
+      <div class="field">
+        <label>Responsável Video One</label>
+        <div class="line">&nbsp;</div>
+      </div>
+      <div class="field" style="grid-column: 1 / -1;">
+        <label>URL do site (domínio ou link Vercel)</label>
+        <div class="line mono">&nbsp;</div>
+      </div>
+      <div class="field" style="grid-column: 1 / -1;">
+        <label>Pacote / entregáveis resumidos</label>
+        <div class="line">&nbsp;</div>
+      </div>
+    </div>
+
+    <h2>2. O que foi entregue</h2>
+    <table class="svc">
+      <tr>
+        <th>Item</th>
+        <th>Detalhe</th>
+      </tr>
+      <tr>
+        <td>Site publicado</td>
+        <td>Versão responsiva (celular e computador), visual profissional, com as seções combinadas no contrato.</td>
+      </tr>
+      <tr>
+        <td>Contato</td>
+        <td>Integração com WhatsApp e/ou formulário de contato, conforme o projeto.</td>
+      </tr>
+      <tr>
+        <td>Hospedagem</td>
+        <td>Site hospedado na <strong>Vercel</strong>, na conta criada para o cliente.</td>
+      </tr>
+      <tr>
+        <td>Código-fonte</td>
+        <td>Repositório do projeto no <strong>GitHub</strong>, na conta criada para o cliente.</td>
+      </tr>
+      <tr>
+        <td>Domínio</td>
+        <td>Quando contratado: registrado no <strong>Registro.br</strong> em nome do cliente e apontado para o site.</td>
+      </tr>
+      <tr>
+        <td>Acessos</td>
+        <td>Logins e senhas iniciais das contas listadas abaixo (envio também por WhatsApp, se combinado).</td>
+      </tr>
+    </table>
+
+    <h2>3. Onde o projeto vive (explicação simples)</h2>
+    <ol class="steps">
+      <li><strong>GitHub</strong> — guarda o código do site (a “pasta do projeto” na nuvem). É o backup técnico.</li>
+      <li><strong>Vercel</strong> — publica o site na internet. É o que deixa a URL no ar 24h.</li>
+      <li><strong>Registro.br</strong> — (se houver) é onde fica o domínio (ex.: seunome.com.br), no seu CPF/CNPJ.</li>
+    </ol>
+    <div class="ok">
+      Depois desta entrega, o site <strong>não depende do computador da Video One</strong>.
+      Ele continua no ar pelas contas abaixo. Guarde este PDF e as senhas em local seguro.
+    </div>
+
+    <h2>4. Acessos — Vercel (hospedagem)</h2>
+    <div class="card">
+      <h3>Vercel</h3>
+      <p class="what">Painel onde o site está hospedado e publicado. Endereço: https://vercel.com</p>
+      <div class="grid-2">
+        <div class="field">
+          <label>E-mail de login</label>
+          <div class="line">&nbsp;</div>
+        </div>
+        <div class="field">
+          <label>Senha inicial</label>
+          <div class="line">&nbsp;</div>
+        </div>
+        <div class="field" style="grid-column: 1 / -1;">
+          <label>Nome do projeto na Vercel</label>
+          <div class="line">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>5. Acessos — GitHub (código)</h2>
+    <div class="card">
+      <h3>GitHub</h3>
+      <p class="what">Repositório com o código-fonte do site. Endereço: https://github.com</p>
+      <div class="grid-2">
+        <div class="field">
+          <label>E-mail / usuário de login</label>
+          <div class="line">&nbsp;</div>
+        </div>
+        <div class="field">
+          <label>Senha inicial</label>
+          <div class="line">&nbsp;</div>
+        </div>
+        <div class="field" style="grid-column: 1 / -1;">
+          <label>Link do repositório</label>
+          <div class="line mono">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>6. Acessos — Registro.br (domínio)</h2>
+    <div class="card">
+      <h3>Registro.br</h3>
+      <p class="what">
+        Conta do domínio .com.br (quando contratado). Endereço: https://registro.br —
+        marque “não contratado” se o cliente já tinha domínio ou se não houve registro neste pacote.
+      </p>
+      <div class="grid-2">
+        <div class="field">
+          <label>Domínio</label>
+          <div class="line">&nbsp;</div>
+        </div>
+        <div class="field">
+          <label>Situação</label>
+          <div class="line">Contratado nesta entrega / Já possuía / Não contratado</div>
+        </div>
+        <div class="field">
+          <label>E-mail / ID de login</label>
+          <div class="line">&nbsp;</div>
+        </div>
+        <div class="field">
+          <label>Senha inicial</label>
+          <div class="line">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <strong>Importante:</strong> altere as senhas assim que receber este documento.
+      A Video One não cobra mensalidade neste pacote; renovação de domínio (anual) e segurança das contas
+      passam a ser de responsabilidade do cliente. Para alterações futuras no site, solicite orçamento avulso à Video One.
+    </div>
+
+    <h2>7. Próximos passos sugeridos</h2>
+    <ul>
+      <li>Abrir cada conta (Vercel, GitHub e, se houver, Registro.br) e trocar as senhas.</li>
+      <li>Testar o site no celular e no computador (WhatsApp, formulário, links).</li>
+      <li>Guardar este PDF + senhas novas em local seguro (não encaminhar em grupos).</li>
+      <li>Acompanhar o e-mail do Registro.br para avisos de renovação do domínio.</li>
+    </ul>
+
+    <h2>8. Contato Video One</h2>
+    <p>
+      Dúvidas sobre esta entrega: WhatsApp <strong>(34) 99833-5489</strong> · Instagram
+      <strong>@videooneprodutora</strong>
+    </p>
+    <p style="margin-top: 10px;">
+      Declaro ter recebido o site publicado e os acessos descritos neste documento.
+    </p>
+    <p>Local e data: ________________________ , _____ / _____ / ________</p>
+
+    <div class="sign-grid">
+      <div class="sign">
+        <div class="sig-line">
+          Video One — entrega<br />
+          <span class="role">Responsável técnico / comercial</span>
+        </div>
+      </div>
+      <div class="sign">
+        <div class="sig-line">
+          Cliente — recebimento<br />
+          <span class="role">Nome / assinatura</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="doc-foot">
+      Video One — Agência e Produtora · Documento de entrega de site · Uso interno com o cliente<br />
+      Av. Rondon Pacheco, 5750 — Uberlândia/MG · WhatsApp (34) 99833-5489 · @videooneprodutora
+    </footer>
+  </div>
+</body>
+</html>
