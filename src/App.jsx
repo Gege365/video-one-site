@@ -1,39 +1,44 @@
-import { useCallback, useState } from 'react'
-import Nav from './components/Nav'
-import Hero from './components/Hero'
-import Assistants from './components/Assistants'
-import Courses from './components/Courses'
-import Sites from './components/Sites'
-import CtaBand from './components/CtaBand'
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+
 import Footer from './components/Footer'
-import AssistantChat from './components/AssistantChat'
+import SiteNav from './components/site/SiteNav'
+import HomePage from './pages/HomePage'
+import ModelPage from './pages/ModelPage'
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (hash) {
+      const target = document.querySelector(hash)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+  return null
+}
+
+function Shell() {
+  return (
+    <div className="vo-site">
+      <SiteNav />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/modelos/:slug" element={<ModelPage />} />
+      </Routes>
+      <Footer />
+    </div>
+  )
+}
 
 export default function App() {
-  const [activeAssistant, setActiveAssistant] = useState(null)
-
-  const openAssistant = useCallback((id) => {
-    setActiveAssistant(id)
-  }, [])
-
-  const closeAssistant = useCallback(() => {
-    setActiveAssistant(null)
-  }, [])
-
   return (
-    <>
-      <div className="page-bg" aria-hidden />
-      <Nav />
-      <main>
-        <Hero />
-        <Assistants onOpenAssistant={openAssistant} />
-        <Courses onOpenAssistant={openAssistant} />
-        <Sites onOpenAssistant={openAssistant} />
-        <CtaBand onOpenAssistant={openAssistant} />
-      </main>
-      <Footer />
-      {activeAssistant && (
-        <AssistantChat assistantId={activeAssistant} onClose={closeAssistant} />
-      )}
-    </>
+    <BrowserRouter>
+      <Shell />
+    </BrowserRouter>
   )
 }
