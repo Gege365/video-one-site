@@ -37,14 +37,14 @@ export default function HeroStage() {
             className="vo-eyebrow"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
+            transition={{ duration: 0.4, ease }}
           >
             Video One — Tecnologia que Simplifica seu Trabalho!
           </motion.p>
           <motion.h1
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.08, ease }}
+            transition={{ duration: 0.45, delay: 0.04, ease }}
           >
             Tecnologia
             <br className="vo-hero-br" />
@@ -59,18 +59,18 @@ export default function HeroStage() {
           </motion.h1>
           <motion.p
             className="vo-hero-lead"
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.16, ease }}
+            transition={{ duration: 0.4, delay: 0.08, ease }}
           >
             A Video One entrega aplicativos de gestão e sites profissionais, personalizados com a sua marca,{' '}
             <strong>SEM MENSALIDADES!</strong>
           </motion.p>
           <motion.div
             className="vo-hero-actions"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.26, ease }}
+            transition={{ duration: 0.35, delay: 0.12, ease }}
           >
             <a className="vo-btn vo-btn--light" href="#gestao">
               Aplicativos de Gestão

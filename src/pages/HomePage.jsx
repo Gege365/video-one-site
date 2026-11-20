@@ -8,52 +8,46 @@ const cinemaEase = [0.16, 1, 0.3, 1]
 
 const sheetVariants = {
   hidden: {
-    opacity: 0.35,
-    y: 92,
-    scale: 0.94,
-    filter: 'blur(10px)',
+    opacity: 0.55,
+    y: 28,
   },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    filter: 'blur(0px)',
     transition: {
-      duration: 1.05,
+      duration: 0.4,
       ease: cinemaEase,
       when: 'beforeChildren',
-      staggerChildren: 0.14,
-      delayChildren: 0.08,
+      staggerChildren: 0.05,
+      delayChildren: 0.02,
     },
   },
 }
 
 const headItem = {
-  hidden: { opacity: 0, y: 34, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 14 },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.85, ease: cinemaEase },
+    transition: { duration: 0.35, ease: cinemaEase },
   },
 }
 
 const highlightBand = {
-  hidden: { opacity: 0, y: 36 },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, ease: cinemaEase },
+    transition: { duration: 0.4, ease: cinemaEase },
   },
 }
 
 const carouselItem = {
-  hidden: { opacity: 0, x: 72, scale: 0.96 },
+  hidden: { opacity: 0, y: 18 },
   show: {
     opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: { duration: 0.95, ease: cinemaEase },
+    y: 0,
+    transition: { duration: 0.4, ease: cinemaEase },
   },
 }
 
@@ -116,10 +110,10 @@ function PlatformCarousel({ models }) {
           <motion.article
             key={model.slug}
             className={`platform-card tone-${model.tone}`}
-            initial={{ opacity: 0, y: 28, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.7, delay: index * 0.08, ease: cinemaEase }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15, margin: '0px 0px -8% 0px' }}
+            transition={{ duration: 0.35, delay: index * 0.04, ease: cinemaEase }}
           >
             <div className="platform-card-body">
               <div className="platform-card-info">
@@ -167,12 +161,11 @@ function PlatformCarousel({ models }) {
 }
 
 const sitesCarouselVariants = {
-  hidden: { opacity: 0, x: 72, scale: 0.96 },
+  hidden: { opacity: 0, y: 18 },
   show: {
     opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: { duration: 0.95, ease: cinemaEase },
+    y: 0,
+    transition: { duration: 0.4, ease: cinemaEase },
   },
 }
 
@@ -235,10 +228,10 @@ function SitesCarousel({ models }) {
           <motion.article
             key={model.slug}
             className={`model-card tone-${model.tone}`}
-            initial={{ opacity: 0, y: 28, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.7, delay: index * 0.08, ease: cinemaEase }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15, margin: '0px 0px -8% 0px' }}
+            transition={{ duration: 0.35, delay: index * 0.04, ease: cinemaEase }}
           >
             <div className="model-card-art">
               <picture>
@@ -319,7 +312,7 @@ export default function HomePage() {
         variants={sheetVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.28, margin: '-8% 0px -8% 0px' }}
+        viewport={{ once: true, amount: 0.12, margin: '0px 0px -12% 0px' }}
       >
         <div className="vo-container">
           <div className="platform-head">
@@ -339,7 +332,7 @@ export default function HomePage() {
         variants={highlightBand}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.35 }}
+        viewport={{ once: true, amount: 0.12, margin: '0px 0px -10% 0px' }}
       >
         <div className="vo-highlight-frame">
           <picture>
@@ -369,7 +362,7 @@ export default function HomePage() {
         variants={sheetVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.28, margin: '-8% 0px -8% 0px' }}
+        viewport={{ once: true, amount: 0.12, margin: '0px 0px -12% 0px' }}
       >
         <div className="vo-container">
           <div className="sites-head">
